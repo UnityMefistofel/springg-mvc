@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${person.getName()}">Person</title>
+    <style>
+        .c-button {
+            min-width: 120px;
+            font-family: Calibri;
+            appearance: auto;
+            border: 0;
+            border-radius: 5px;
+            background: #4676d7;
+            color: #fff;
+            padding: 8px 16px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .c-button:hover {
+            background: #1d49aa;
+        }
+
+        .c-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px #cbd6ee;
+        }
+    </style>
+</head>
+<body>
+<h1 th:text="${person.getName()}">text</h1>
+<h2 th:text="@{age: {id}(id=${person.getAge()})}">text</h2>
+<h2 th:text="@{e-mail: {id}(id=${person.getEmail()})}">text</h2>
+
+<div><a th:href="@{/people/{id}/edit(id=${person.getId()})}" class="c-button">Edit person</a></div>
+<div><a th:href="@{/people/{id}/delete(id=${person.getId()})}" class="c-button">Delete person</a></div>
+<div><a href="/people" class="c-button"> < Back </a></div>
+</body>
+</html>

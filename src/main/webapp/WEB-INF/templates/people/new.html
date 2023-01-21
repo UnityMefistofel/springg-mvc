@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Person (new)</title>
+    <style>
+        .c-button {
+            min-width: 120px;
+            font-family: Calibri;
+            appearance: auto;
+            border: 0;
+            border-radius: 5px;
+            background: #4676d7;
+            color: #fff;
+            padding: 8px 16px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .c-button:hover {
+            background: #1d49aa;
+        }
+
+        .c-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px #cbd6ee;
+        }
+    </style>
+</head>
+<body>
+<h1>Creating new person:</h1>
+<form th:method="POST" th:action="@{/people}" th:object="${person}">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td align="center"><input type="text" th:field="*{name}" id="name" width="100%"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td align="center"><input type="text" th:field="*{age}" id="age" width="100%"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>E-mail</td>
+            <td align="center"><input type="text" th:field="*{email}" id="email" width="100%"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" value="Change" class="c-button">Create</button>
+                <a href="/people" class="c-button" >Cancel</a>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
